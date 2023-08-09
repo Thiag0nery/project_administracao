@@ -33,21 +33,21 @@
                                         <div class="form-group row">
                                             <div class="col-sm-5">
                                                 <label>Nome</label>
-                                                <input class="form-control">
+                                                <input class="form-control" name="{{usuario.first_name.name}}">
                                             </div>
 
                                              <div class="col-sm-2">
                                                 <label>CPF</label>
-                                                <input class="form-control">
+                                                <input class="form-control" name="{{pessoa.pes_cpf.name}}">
                                             </div>
 
                                              <div class="col-sm-2">
                                                 <label>RG (Completo)</label>
-                                                <input class="form-control">
+                                                <input class="form-control" name="{{pessoa.pes_rg.name}}">
                                             </div>
                                             <div class="col-sm-3">
                                                 <label>Emissor</label>
-                                                <input class="form-control">
+                                                <input class="form-control" name="{{pessoa.pes_emissor.name}}">
                                             </div>
                                         </div>
                                       <div class="form-group row">
@@ -55,58 +55,58 @@
 
                                             <div class="col-sm-3">
                                                 <label>Data de nascimento</label>
-                                                <input class="form-control" type="date">
+                                                <input class="form-control" type="date" name="{{pessoa.pes_nascimento.name}}">
                                             </div>
 
                                             <div class="col-sm-3">
                                                 <label>Telefone 1</label>
-                                                <input class="form-control">
+                                                <input class="form-control" name="{{pessoa.pes_telefone1.name}}">
                                             </div>
                                             <div class="col-sm-3">
                                                 <label>Telefone 2</label>
-                                                <input class="form-control">
+                                                <input class="form-control" >
                                             </div>
                                             <div class="col-sm-3">
                                                 <label>Inscrição Estadual (completo)</label>
-                                                <input class="form-control">
+                                                <input class="form-control" name="{{pessoa.pes_inscricao_estadual.name}}">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-sm-3">
                                                 <label>Celular</label>
-                                                <input class="form-control">
+                                                <input class="form-control" name="{{pessoa.pes_celular.name}}">
                                             </div>
                                             <div class="col-sm-3">
                                                 <label>CEP</label>
-                                                <input class="form-control">
+                                                <input class="form-control" name="{{pessoa.pes_cep.name}}">
                                             </div>
                                             <div class="col-sm-3">
                                                 <label>Cidade</label>
-                                                <input class="form-control">
+                                                <input class="form-control" name="{{pessoa.pes_cidade.name}}">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-sm-3">
                                                 <label>Endereço</label>
-                                                <input class="form-control">
+                                                <input class="form-control" name="{{pessoa.pes_endereco.name}}">
                                             </div>
                                             <div class="col-sm-3">
                                                 <label>Bairro</label>
-                                                <input class="form-control">
+                                                <input class="form-control" name="{{pessoa.pes_bairro.name}}">
                                             </div>
                                             <div class="col-sm-3">
                                                 <label>Complemento</label>
-                                                <input class="form-control">
+                                                <input class="form-control" name="{{pessoa.pes_complemento.name}}">
                                             </div>
                                         </div>
                                       <div class="form-group row">
                                             <div class="col-sm-4">
                                                 <label>Email</label>
-                                               <div class="input-group">
+                                               <div class="input-group" >
 
-                                                <input class="form-control mr-3">
+                                                <input class="form-control mr-3" id="email-usuario" name="{{usuario.email.name}}" type="email">
 
-                                                 <button type="button" class="btn btn-success btn-sm">Enviar codigo</button>
+                                                 <button id="button-email" data-url="{% url 'home:email_validade' %}" type="button" class="btn btn-success btn-sm">Enviar codigo</button>
 
                                                 </div>
                                             </div>
@@ -120,11 +120,11 @@
                                        <div class="form-group row">
                                             <div class="col-sm-3">
                                                 <label>Senha</label>
-                                                <input class="form-control">
+                                                <input class="form-control" name="{{usuario.password.name}}">
                                             </div>
                                             <div class="col-sm-3">
                                                 <label>Confirmação de senha</label>
-                                                <input class="form-control">
+                                                <input class="form-control" name="{{usuario.password_repeat.name}}">
                                             </div>
 
                                            <div class="col-sm-3">
@@ -336,4 +336,5 @@
             $("#progressBar").css("width", "0%");
         }
 </script>
+<script src="{% static 'js/email_validate.js' %}"></script>
 {%endblock%}

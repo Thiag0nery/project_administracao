@@ -76,7 +76,7 @@ WSGI_APPLICATION = 'bll_config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'banco_site',
         'USER': 'root',
         'PASSWORD': '1234',
@@ -126,8 +126,16 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'templates/static'
 ]
-#pvqnkkqxvbfbfdjr
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp-mail.outlook.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'betateste456@hotmail.com'
+EMAIL_HOST_PASSWORD = 'pvqnkkqxvbfbfdjr'
+DEFAULT_FROM_EMAIL = 'betateste456@hotmail.com'

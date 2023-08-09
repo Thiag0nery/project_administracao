@@ -1,22 +1,25 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class pessoa(models.Model):
     pes_cod = models.BigAutoField(primary_key=True)
+    pes_usuario_fk = models.ForeignKey(User, on_delete=models.CASCADE)
     pes_cpf = models.CharField(max_length=19, blank=True, null=True)
     pes_rg = models.CharField(max_length=19, blank=True, null=True)
     pes_emissor = models.CharField(max_length=19, blank=True, null=True)
-    pes_nascimento = models.CharField(max_length=19, blank=True, null=True)
+    pes_nascimento = models.DateField(blank=True, null=True)
     pes_telefone1 = models.CharField(max_length=19, blank=True, null=True)
     pes_telefone2 = models.CharField(max_length=19, blank=True, null=True)
     pes_inscricao_estadual = models.CharField(max_length=50, blank=True, null=True)
     pes_celular = models.CharField(max_length=19, blank=True, null=True)
     pes_cep = models.CharField(max_length=19, blank=True, null=True)
     pes_cidade = models.CharField(max_length=50, blank=True, null=True)
-    pes_enreco = models.CharField(max_length=50, blank=True, null=True)
+    pes_endereco = models.CharField(max_length=50, blank=True, null=True)
     pes_bairro = models.CharField(max_length=50, blank=True, null=True)
     pes_complemento = models.CharField(max_length=50, blank=True, null=True)
 class pessoa_juridica(models.Model):
     pjuri_cod = models.BigAutoField(primary_key=True)
+    pjuri_usuario_fk = models.ForeignKey(User, on_delete=models.CASCADE)
     pjuri_razao = models.CharField(max_length=100, blank=True, null=True)
     pjuri_nome = models.CharField(max_length=100, blank=True, null=True)
     pjuri_cnpj = models.CharField(max_length=19, blank=True, null=True)
