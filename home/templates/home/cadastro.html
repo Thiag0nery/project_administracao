@@ -15,17 +15,17 @@
 
                                 <div class="p-5">
 
-                                  <form>
-
+                                  <form method="POST" id="form-cadastro">
+                                         {% csrf_token %}
                                         <p class="fw-bold">SELECIONE O TIPO DE PESSOA:</p>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                            <input required class="form-check-input" type="radio" value="Pessoa Jurídica" name="{{pessoa.pes_tipo.name}}" id="flexRadioDefault1" checked>
                                             <label class="form-check-label" for="flexRadioDefault1">
                                             Pessoa Jurídica
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input " type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                                            <input required  class="form-check-input " value="Pessoa Física" name="{{pessoa.pes_tipo.name}}" type="radio"  id="flexRadioDefault2">
                                             <label class="form-check-label" for="flexRadioDefault2">
                                             Pessoa Física
                                             </label>
@@ -33,21 +33,21 @@
                                         <div class="form-group row">
                                             <div class="col-sm-5">
                                                 <label>Nome</label>
-                                                <input class="form-control" name="{{usuario.first_name.name}}">
+                                                <input required  class="form-control" name="{{usuario.first_name.name}}">
                                             </div>
 
                                              <div class="col-sm-2">
                                                 <label>CPF</label>
-                                                <input class="form-control" name="{{pessoa.pes_cpf.name}}">
+                                                <input required  class="form-control" name="{{pessoa.pes_cpf.name}}">
                                             </div>
 
                                              <div class="col-sm-2">
                                                 <label>RG (Completo)</label>
-                                                <input class="form-control" name="{{pessoa.pes_rg.name}}">
+                                                <input required  class="form-control" name="{{pessoa.pes_rg.name}}">
                                             </div>
                                             <div class="col-sm-3">
                                                 <label>Emissor</label>
-                                                <input class="form-control" name="{{pessoa.pes_emissor.name}}">
+                                                <input required  class="form-control" name="{{pessoa.pes_emissor.name}}">
                                             </div>
                                         </div>
                                       <div class="form-group row">
@@ -55,48 +55,48 @@
 
                                             <div class="col-sm-3">
                                                 <label>Data de nascimento</label>
-                                                <input class="form-control" type="date" name="{{pessoa.pes_nascimento.name}}">
+                                                <input  required class="form-control" type="date" name="{{pessoa.pes_nascimento.name}}">
                                             </div>
 
                                             <div class="col-sm-3">
                                                 <label>Telefone 1</label>
-                                                <input class="form-control" name="{{pessoa.pes_telefone1.name}}">
+                                                <input required  class="form-control" name="{{pessoa.pes_telefone1.name}}">
                                             </div>
                                             <div class="col-sm-3">
                                                 <label>Telefone 2</label>
-                                                <input class="form-control" >
+                                                <input required  class="form-control" name="{{pessoa.pes_telefone2.name}}" >
                                             </div>
                                             <div class="col-sm-3">
                                                 <label>Inscrição Estadual (completo)</label>
-                                                <input class="form-control" name="{{pessoa.pes_inscricao_estadual.name}}">
+                                                <input required  class="form-control" name="{{pessoa.pes_inscricao_estadual.name}}">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-sm-3">
                                                 <label>Celular</label>
-                                                <input class="form-control" name="{{pessoa.pes_celular.name}}">
+                                                <input required  class="form-control" name="{{pessoa.pes_celular.name}}">
                                             </div>
                                             <div class="col-sm-3">
                                                 <label>CEP</label>
-                                                <input class="form-control" name="{{pessoa.pes_cep.name}}">
+                                                <input required class="form-control" name="{{pessoa.pes_cep.name}}">
                                             </div>
                                             <div class="col-sm-3">
                                                 <label>Cidade</label>
-                                                <input class="form-control" name="{{pessoa.pes_cidade.name}}">
+                                                <input required class="form-control" name="{{pessoa.pes_cidade.name}}">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-sm-3">
                                                 <label>Endereço</label>
-                                                <input class="form-control" name="{{pessoa.pes_endereco.name}}">
+                                                <input required class="form-control" name="{{pessoa.pes_endereco.name}}">
                                             </div>
                                             <div class="col-sm-3">
                                                 <label>Bairro</label>
-                                                <input class="form-control" name="{{pessoa.pes_bairro.name}}">
+                                                <input required class="form-control" name="{{pessoa.pes_bairro.name}}">
                                             </div>
                                             <div class="col-sm-3">
                                                 <label>Complemento</label>
-                                                <input class="form-control" name="{{pessoa.pes_complemento.name}}">
+                                                <input required class="form-control" name="{{pessoa.pes_complemento.name}}">
                                             </div>
                                         </div>
                                       <div class="form-group row">
@@ -104,7 +104,7 @@
                                                 <label>Email</label>
                                                <div class="input-group" >
 
-                                                <input class="form-control mr-3" id="email-usuario" name="{{usuario.email.name}}" type="email">
+                                                <input required class="form-control mr-3" id="email-usuario" name="{{usuario.email.name}}" type="email">
 
                                                  <button id="button-email" data-url="{% url 'home:email_validade' %}" type="button" class="btn btn-success btn-sm">Enviar codigo</button>
 
@@ -112,7 +112,7 @@
                                             </div>
                                             <div class="col-sm-4">
                                                 <label>Codigo de validação</label>
-                                                <input class="form-control">
+                                                <input required class="form-control" name="input_validacao_email1">
                                             </div>
 
                                         </div>
@@ -134,90 +134,92 @@
 
                                         </div>
 
-                                      <h3>DADOS DA EMPRESA</h3>
+                                      <div id="conteiner-juridica">
+                                          <h3>DADOS DA EMPRESA</h3>
 
                                       <div class="form-group d-flex justify-content-between">
                                           <div class="col-sm-5">
                                                 <label>Razão social</label>
-                                                <input class="form-control w-75">
+                                                <input class="form-control w-75" required name="{{pessoa_juridica.pjuri_razao.name}}">
                                             </div>
                                           <div class="col-sm-5">
                                                 <label>Nome fantasia</label>
-                                                <input class="form-control w-75">
+                                                <input class="form-control w-75" required name="{{pessoa_juridica.pjuri_nome.name}}">
                                             </div>
                                       </div>
 
                                        <div class="form-group row">
 
                                       <div class="col-sm-3">
-                                                <label>CPF</label>
-                                                <input class="form-control">
+                                                <label>CNPJ</label>
+                                                <input class="form-control" required name="{{pessoa_juridica.pjuri_cnpj.name}}">
                                             </div>
 
                                       <div class="col-sm-3">
                                                 <label>Telefone 1</label>
-                                                <input class="form-control">
+                                                <input class="form-control" required name="{{pessoa_juridica.pjuri_telefone1.name}}">
                                             </div>
                                             <div class="col-sm-3">
                                                 <label>Telefone 2</label>
-                                                <input class="form-control">
+                                                <input class="form-control" required name="{{pessoa_juridica.pjuri_telefone2.name}}">
                                             </div>
                                             <div class="col-sm-3">
                                                 <label>Inscrição Estadual (completo)</label>
-                                                <input class="form-control">
+                                                <input class="form-control" required name="{{pessoa_juridica.pjuri_inscricao_estadual.name}}">
                                             </div>
                                        </div>
 
                                         <div class="form-group row">
                                             <div class="col-sm-3">
                                                 <label>Celular</label>
-                                                <input class="form-control">
+                                                <input class="form-control" required name="{{pessoa_juridica.pjuri_celular.name}}">
                                             </div>
                                             <div class="col-sm-3">
                                                 <label>CEP</label>
-                                                <input class="form-control">
+                                                <input class="form-control" required name="{{pessoa_juridica.pjuri_cep.name}}">
                                             </div>
                                             <div class="col-sm-3">
                                                 <label>Cidade</label>
-                                                <input class="form-control">
+                                                <input class="form-control" required name="{{pessoa_juridica.pjuri_cidade.name}}">
                                             </div>
                                         </div>
 
                                       <div class="form-group row">
                                             <div class="col-sm-3">
                                                 <label>Endereço</label>
-                                                <input class="form-control">
+                                                <input class="form-control" required name="{{pessoa_juridica.pjuri_endereco.name}}">
                                             </div>
                                             <div class="col-sm-3">
                                                 <label>Bairro</label>
-                                                <input class="form-control">
+                                                <input class="form-control" required name="{{pessoa_juridica.pjuri_bairro.name}}">
                                             </div>
                                             <div class="col-sm-3">
                                                 <label>Complemento</label>
-                                                <input class="form-control">
+                                                <input class="form-control" required name="{{pessoa_juridica.pjuri_complemento.name}}">
                                             </div>
                                         </div>
 
                                       <div class="form-group row">
                                            <div class="col-sm-3">
                                                 <label>Responsável financeiro</label>
-                                                <input class="form-control">
+                                                <input class="form-control" required name="{{pessoa_juridica.pjuri_responsavel_nome.name}}">
                                             </div>
                                            <div class="col-sm-3">
                                                 <label>Email Resp. financeiro</label>
-                                                <input class="form-control">
+                                                <input class="form-control" required name="{{pessoa_juridica.pjuri_responsavel_email.name}}">
                                             </div>
                                       </div>
 
-                                      <div class="form-group row">
-                                           <div class="col-sm-6 d-flex">
-                                                <div class="d-block">
-                                                    <label>Email</label>
-                                               <input class="form-control">
-                                                </div>
+                                      <div class="form-group d-flex align-items-center justify-content-between">
+                                           <div class="col-sm-6 row">
 
-                                                <div class="d-flex">
-                                                                                                     <button type="button" class="btn btn-success btn-sm">Enviar codigo</button>
+                                                    <label>Email</label>
+
+
+
+                                                <div class="input-group" >
+                                                    <input class="form-control" required name="{{pessoa_juridica.pjuri_email.name}}" id="email_empresa">
+                                                    <button type="button" id="btn-empresa-validade" data-url="{% url 'home:email_validade_empresa' %}" class="btn btn-success btn-sm">Enviar codigo</button>
 
                                                 </div>
 
@@ -227,24 +229,24 @@
 
                                           <div class="col-sm-3">
                                                 <label>Código de validação</label>
-                                                <input class="form-control">
+                                                <input class="form-control" required name="input_validacao_email2">
                                             </div>
 
                                            <div class="col-sm-3">
                                                 <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault4">
+                                            <input class="form-check-input" type="radio" value="Escolha se é ME/EPP/MEI" required name="{{pessoa_juridica.pjuri_tipo.name}}" id="flexRadioDefault4"  checked>
                                             <label class="form-check-label" for="flexRadioDefault4">
                                             Escolha se é ME/EPP/MEI
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input " type="radio" name="flexRadioDefault" id="flexRadioDefault5" checked>
+                                            <input class="form-check-input " type="radio" value="Não" required name="{{pessoa_juridica.pjuri_tipo.name}}" id="flexRadioDefault5" >
                                             <label class="form-check-label" for="flexRadioDefault5">
                                             Não
                                             </label>
                                         </div>
                                                 <div class="form-check">
-                                            <input class="form-check-input " type="radio" name="flexRadioDefault" id="flexRadioDefault6" checked>
+                                            <input class="form-check-input " type="radio" value="Sim" required name="{{pessoa_juridica.pjuri_tipo.name}}" id="flexRadioDefault6" >
                                             <label class="form-check-label" for="flexRadioDefault6">
                                             Sim
                                             </label>
@@ -252,60 +254,60 @@
                                             </div>
 
                                       </div>
+                                      </div>
 
                                       <div class="form-group ">
                                           <div class="form-check">
-                                            <input class="form-check-input " type="radio" name="flexRadioDefault" id="flexRadioDefault6" checked>
-                                            <label class="form-check-label" for="flexRadioDefault6">
-                                            Escolha uma opção
-                                            </label>
+
+                                            <h5>Escolha uma opção</h5>
+
                                         </div>
                                           <div class="form-check">
-                                            <input class="form-check-input " type="radio" name="flexRadioDefault" id="flexRadioDefault6" checked>
-                                            <label class="form-check-label" for="flexRadioDefault6">
+                                            <input class="form-check-input " type="radio" name="flexRadioDefault" id="flexRadioDefault7" checked>
+                                            <label class="form-check-label" for="flexRadioDefault7">
                                             Contatado pela BLLCOMPRAS
                                             </label>
                                         </div>
                                           <div class="form-check">
-                                            <input class="form-check-input " type="radio" name="flexRadioDefault" id="flexRadioDefault6" checked>
-                                            <label class="form-check-label" for="flexRadioDefault6">
+                                            <input class="form-check-input " type="radio" name="flexRadioDefault" id="flexRadioDefault8" checked>
+                                            <label class="form-check-label" for="flexRadioDefault8">
                                             Órgão Público (Prefeitura, Secretaria, Câmara, dentre outros)
                                             </label>
                                         </div>
                                           <div class="form-check">
-                                            <input class="form-check-input " type="radio" name="flexRadioDefault" id="flexRadioDefault6" checked>
-                                            <label class="form-check-label" for="flexRadioDefault6">
+                                            <input class="form-check-input " type="radio" name="flexRadioDefault" id="flexRadioDefault9" checked>
+                                            <label class="form-check-label" for="flexRadioDefault9">
                                             Eventos (Curso, Mentoria, Workshop)
                                             </label>
                                         </div>
                                           <div class="form-check">
-                                            <input class="form-check-input " type="radio" name="flexRadioDefault" id="flexRadioDefault6" checked>
-                                            <label class="form-check-label" for="flexRadioDefault6">
+                                            <input class="form-check-input " type="radio" name="flexRadioDefault" id="flexRadioDefault10" checked>
+                                            <label class="form-check-label" for="flexRadioDefault10">
                                             Redes Sociais (Facebook, Instagram, LinkedIn)
                                             </label>
                                         </div>
                                           <div class="form-check">
-                                            <input class="form-check-input " type="radio" name="flexRadioDefault" id="flexRadioDefault6" checked>
-                                            <label class="form-check-label" for="flexRadioDefault6">
+                                            <input class="form-check-input " type="radio" name="flexRadioDefault" id="flexRadioDefault11" checked>
+                                            <label class="form-check-label" for="flexRadioDefault11">
                                             Site BLLCOMPRAS
                                             </label>
                                         </div>
                                           <div class="form-check">
-                                            <input class="form-check-input " type="radio" name="flexRadioDefault" id="flexRadioDefault6" checked>
-                                            <label class="form-check-label" for="flexRadioDefault6">
+                                            <input class="form-check-input " type="radio" name="flexRadioDefault" id="flexRadioDefault12" checked>
+                                            <label class="form-check-label" for="flexRadioDefault12">
                                             Google
                                             </label>
                                         </div>
                                           <div class="form-check">
-                                            <input class="form-check-input " type="radio" name="flexRadioDefault" id="flexRadioDefault6" checked>
-                                            <label class="form-check-label" for="flexRadioDefault6">
+                                            <input class="form-check-input " type="radio" name="flexRadioDefault" id="flexRadioDefault13" checked>
+                                            <label class="form-check-label" for="flexRadioDefault13">
                                             Outro cana
                                             </label>
                                         </div>
                                       </div>
 
                                       <div class="form-group">
-                                          <button class="btn btn-success">Cadastrar-se</button>
+                                          <button class="btn btn-success" id="btn-cadastro" data-url="{% url 'home:cadastro_usuario' %}">Cadastrar-se</button>
                                       </div>
 
                                   </form>
@@ -336,5 +338,18 @@
             $("#progressBar").css("width", "0%");
         }
 </script>
+<script>
+    $('#flexRadioDefault1').on('change', function(event) {
+       $('#conteiner-juridica').toggle()
+        $("#conteiner-juridica input").prop("required", true);
+
+
+    })
+    $('#flexRadioDefault2').on('change', function(event) {
+       $('#conteiner-juridica').toggle()
+        $("#conteiner-juridica input").removeAttr("required");
+    })
+</script>
 <script src="{% static 'js/email_validate.js' %}"></script>
+<script src="{% static 'home_js/cadastro_ajax.js' %}"></script>
 {%endblock%}

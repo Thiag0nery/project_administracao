@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 class pessoa(models.Model):
     pes_cod = models.BigAutoField(primary_key=True)
-    pes_usuario_fk = models.ForeignKey(User, on_delete=models.CASCADE)
+    pes_usuario_fk = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
     pes_cpf = models.CharField(max_length=19, blank=True, null=True)
     pes_rg = models.CharField(max_length=19, blank=True, null=True)
     pes_emissor = models.CharField(max_length=19, blank=True, null=True)
@@ -16,10 +16,11 @@ class pessoa(models.Model):
     pes_cidade = models.CharField(max_length=50, blank=True, null=True)
     pes_endereco = models.CharField(max_length=50, blank=True, null=True)
     pes_bairro = models.CharField(max_length=50, blank=True, null=True)
+    pes_tipo = models.CharField(max_length=50, blank=True, null=True)
     pes_complemento = models.CharField(max_length=50, blank=True, null=True)
 class pessoa_juridica(models.Model):
     pjuri_cod = models.BigAutoField(primary_key=True)
-    pjuri_usuario_fk = models.ForeignKey(User, on_delete=models.CASCADE)
+    pjuri_usuario_fk = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
     pjuri_razao = models.CharField(max_length=100, blank=True, null=True)
     pjuri_nome = models.CharField(max_length=100, blank=True, null=True)
     pjuri_cnpj = models.CharField(max_length=19, blank=True, null=True)
@@ -29,7 +30,7 @@ class pessoa_juridica(models.Model):
     pjuri_celular = models.CharField(max_length=19, blank=True, null=True)
     pjuri_cep = models.CharField(max_length=19, blank=True, null=True)
     pjuri_cidade = models.CharField(max_length=50, blank=True, null=True)
-    pjuri_enreco = models.CharField(max_length=50, blank=True, null=True)
+    pjuri_endereco = models.CharField(max_length=50, blank=True, null=True)
     pjuri_bairro = models.CharField(max_length=50, blank=True, null=True)
     pjuri_complemento = models.CharField(max_length=50, blank=True, null=True)
     pjuri_responsavel_nome = models.CharField(max_length=100, blank=True, null=True)
